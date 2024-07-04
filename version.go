@@ -160,6 +160,7 @@ func (v VersionUpdateClause) ModifyStatement(stmt *gorm.Statement) {
 		stmt.Dest = d
 	}
 
-	stmt.SetColumn(v.Field.DBName, clause.Expr{SQL: stmt.Quote(v.Field.DBName) + "+1"}, true)
+	//stmt.SetColumn(v.Field.DBName, v.Field.DBName+"+1", true)
+	stmt.SetColumn(v.Field.DBName, 5, true)
 	stmt.Clauses["version_enabled"] = clause.Clause{}
 }
